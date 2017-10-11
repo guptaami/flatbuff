@@ -1,0 +1,40 @@
+namespace com.bss.flatbuffer.dept;
+
+enum FBGenre : byte { 
+	Educational = 0, 
+	Romantic, 
+	Thriller 
+	}
+
+enum FBSubject : byte { 
+	English = 0, 
+	History, 
+	Geology,
+	Maths,
+	Chemistry,
+	Geometry 
+	}
+
+table FBStudent {
+  studentId:int;
+  studentName:string;
+  address:string;
+  favSubject:FBSubject;
+}
+
+table FBBook {
+  bookId:string;
+  authorId:string;
+  authorDesc:string;
+  genre:FBGenre;
+}
+
+table FBDepartment {
+	departmentName:string;
+	departmentTag:string;
+	departmentId:int;
+	books:[FBBook];
+	students:[FBStudent];
+}
+
+root_type FBDepartment;
